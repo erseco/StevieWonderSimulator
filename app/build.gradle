@@ -8,7 +8,7 @@ android {
     defaultConfig {
         applicationId "erseco.soft.stevie.wonder.simulator"
         minSdkVersion 16
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
 
