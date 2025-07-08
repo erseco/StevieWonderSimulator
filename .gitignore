@@ -53,4 +53,5 @@ google-services.json
 
 # Android Profiling
 *.hprof
-.aider.chat.history.md .aider.input.history .aider.tags.cache.v4
+
+.aider.*
