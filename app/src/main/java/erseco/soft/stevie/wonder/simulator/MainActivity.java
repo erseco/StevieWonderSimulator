@@ -7,11 +7,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
     private boolean rayCharlesModeEnabled = false;
+
+    private void toggleRayCharlesMode(Context context) {
+        if (rayCharlesModeEnabled) {
+            rayCharlesModeEnabled = false;
+            Toast.makeText(context, "Ray Charles mode Disabled", Toast.LENGTH_SHORT).show();
+        } else {
+            rayCharlesModeEnabled = true;
+            Toast.makeText(context, "Ray Charles mode Enabled", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,26 +33,13 @@ public class MainActivity extends Activity {
         final GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-
-                if (rayCharlesModeEnabled) {
-                    rayCharlesModeEnabled = false;
-                    Toast.makeText(context, "Ray Charles mode Disabled", Toast.LENGTH_SHORT).show();
-                } else {
-                    rayCharlesModeEnabled = true;
-                    Toast.makeText(context, "Ray Charles mode Enabled", Toast.LENGTH_SHORT).show();
-                }
+                toggleRayCharlesMode(context);
                 return true;
             }
 
             @Override
             public void onLongPress(MotionEvent e) {
-                if (rayCharlesModeEnabled) {
-                    rayCharlesModeEnabled = false;
-                    Toast.makeText(context, "Ray Charles mode Disabled", Toast.LENGTH_SHORT).show();
-                } else {
-                    rayCharlesModeEnabled = true;
-                    Toast.makeText(context, "Ray Charles mode Enabled", Toast.LENGTH_SHORT).show();
-                }
+                toggleRayCharlesMode(context);
             }
         };
 
@@ -57,6 +55,15 @@ public class MainActivity extends Activity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER) {
+            toggleRayCharlesMode(this);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

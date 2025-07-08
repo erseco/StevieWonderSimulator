@@ -9,6 +9,7 @@ Stevie Wonder Simulator is an Android app that allows users to experience a simu
 - Experience the world through Stevie Wonder's perspective
 - Intuitive user interface for a seamless experience
 - **Easter Egg**: Double-tap the screen to activate the Ray Charles mode!
+- Compatible with Android TV remotes and Wear OS devices
 
 ## Installation
 
